@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #C09040;
+  --gold-light: #DDB96A;
+  --gold-pale: #F5E9CC;
+  --cream: #FAF8F2;
+  --dark: #14110C;
+  --dark2: #1E1A12;
+  --white: #FFFFFF;
+  --text: #2E2618;
+  --muted: #7A6840;
+}
+
+@theme inline {
+  --color-gold: #C09040;
+  --color-gold-light: #DDB96A;
+  --color-gold-pale: #F5E9CC;
+  --color-cream: #FAF8F2;
+  --color-dark: #14110C;
+  --color-dark2: #1E1A12;
+  --color-site-white: #FFFFFF;
+  --color-site-text: #2E2618;
+  --color-muted: #7A6840;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1;    }
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.anim-fade-up        { animation: fadeInUp 0.9s ease both; }
+.anim-fade           { animation: fadeIn   0.8s ease both; }
+.anim-delay-1        { animation-delay: 0.15s; }
+.anim-delay-2        { animation-delay: 0.35s; }
+.anim-delay-3        { animation-delay: 0.55s; }
+.anim-delay-4        { animation-delay: 0.75s; }
+.anim-pulse-glow     { animation: pulseGlow 3.5s ease-in-out infinite; }
+.anim-slow-spin      { animation: slowSpin 80s linear infinite; }
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #C09040 0%, #F5E0A0 40%, #C09040 60%, #DDB96A 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.section-divider {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C09040, transparent);
+  margin: 0 auto 20px;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid #C09040;
+  color: #DDB96A;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background: rgba(192, 144, 64, 0.15);
+  color: #F5E9CC;
+}
+
+.btn-gold-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: #C09040;
+  color: #14110C;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s;
+  text-decoration: none;
+}
+.btn-gold-solid:hover {
+  background: #DDB96A;
+}
