@@ -10,7 +10,7 @@ export default function Hero() {
         textAlign: "center",
         padding: "140px 24px 100px",
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
         background:
           "radial-gradient(ellipse 110% 80% at 50% 5%, #261F10 0%, #14110C 50%, #0A0806 100%)",
       }}
@@ -21,6 +21,7 @@ export default function Hero() {
           position: "absolute",
           inset: 0,
           pointerEvents: "none",
+          overflow: "hidden",
         }}
       >
         <div
@@ -169,7 +170,7 @@ export default function Hero() {
           A{" "}
           <em
             className="gold-shimmer"
-            style={{ fontStyle: "italic" }}
+            style={{ fontStyle: "italic", paddingRight: "0.12em" }}
           >
             Light from God
           </em>
