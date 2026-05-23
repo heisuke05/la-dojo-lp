@@ -534,14 +534,13 @@ export default function SeminarPage() {
               <p
                 key={i}
                 style={{
-                  fontSize: "1rem",
+                  fontSize: i === 0 ? "1.15rem" : "0.95rem",
                   color: "#F5E8DC",
                   lineHeight: 1.95,
                   margin: 0,
                   textAlign: i === 0 ? "center" : "left",
                   fontStyle: i === 0 ? "italic" : "normal",
                   fontFamily: i === 0 ? "var(--font-playfair)" : "var(--font-inter)",
-                  fontSize: i === 0 ? "1.15rem" : "0.95rem",
                 }}
               >
                 {text}
