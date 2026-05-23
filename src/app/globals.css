@@ -133,3 +133,25 @@ body {
 .btn-gold-solid:hover {
   background: #DDB96A;
 }
+
+/* ── Mobile-friendly global rules ─────────────────── */
+* { box-sizing: border-box; }
+
+img { max-width: 100%; height: auto; }
+
+/* Prevent horizontal scroll on mobile */
+html, body { overflow-x: hidden; }
+
+/* Touch-friendly tap targets */
+a, button { min-height: 44px; }
+
+/* Responsive section padding */
+@media (max-width: 640px) {
+  .btn-gold,
+  .btn-gold-solid {
+    padding: 14px 24px;
+    font-size: 0.72rem;
+    width: 100%;
+    justify-content: center;
+  }
+}

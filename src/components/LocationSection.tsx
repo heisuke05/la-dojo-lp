@@ -1,13 +1,13 @@
 "use client";
 
 const schedule = [
-  { day: "Sunday",    time: "10:00 AM – 6:00 PM",  label: "Service & Okiyome" },
-  { day: "Monday",    time: "Closed",               label: "" },
-  { day: "Tuesday",   time: "10:00 AM – 6:00 PM",  label: "Open Session" },
-  { day: "Wednesday", time: "11:00 AM – 7:00 PM",  label: "Open Session" },
-  { day: "Thursday",  time: "11:00 AM – 7:00 PM",  label: "Open Session" },
-  { day: "Friday",    time: "10:00 AM – 6:00 PM",  label: "Open Session" },
-  { day: "Saturday",  time: "10:00 AM – 6:00 PM",  label: "Service & Events" },
+  { day: "Sunday",    time: "10:00 AM – 6:00 PM", label: "" },
+  { day: "Monday",    time: "Closed",              label: "" },
+  { day: "Tuesday",   time: "10:00 AM – 6:00 PM", label: "" },
+  { day: "Wednesday", time: "10:00 AM – 6:00 PM", label: "" },
+  { day: "Thursday",  time: "10:00 AM – 6:00 PM", label: "" },
+  { day: "Friday",    time: "10:00 AM – 6:00 PM", label: "" },
+  { day: "Saturday",  time: "10:00 AM – 6:00 PM", label: "" },
 ];
 
 const ADDRESS = "809 S Atlantic Blvd., #378, Monterey Park CA 91754";
@@ -279,6 +279,9 @@ export default function LocationSection() {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
           }
+        }
+        @media (max-width: 640px) {
+          #location { padding: 72px 20px !important; }
         }
       `}</style>
     </section>

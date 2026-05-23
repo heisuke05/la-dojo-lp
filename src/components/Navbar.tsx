@@ -92,7 +92,7 @@ export default function Navbar() {
               opacity: 0.8,
             }}
           >
-            Los Angeles Dojo
+            Los Angeles Spiritual Center
           </div>
         </div>
       </a>

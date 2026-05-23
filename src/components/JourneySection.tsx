@@ -1,8 +1,8 @@
 const steps = [
   {
     num: "1",
-    title: "Visit the Dojo",
-    body: "Come to the Los Angeles Dojo for a free introduction session. No prior knowledge or commitment is required — simply arrive with an open heart.",
+    title: "Visit the Center",
+    body: "Come to the Los Angeles Spiritual Center for a free introduction session. No prior knowledge or commitment is required — simply arrive with an open heart.",
   },
   {
     num: "2",
@@ -164,8 +164,9 @@ export default function JourneySection() {
           .journey-step {
             border-right: none !important;
             border-bottom: 1px solid rgba(192,144,64,0.15);
-            padding: 32px 24px !important;
+            padding: 28px 20px !important;
           }
+          #journey { padding: 72px 20px !important; }
         }
       `}</style>
     </section>

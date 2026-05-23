@@ -175,8 +175,11 @@ export default function MissionSection() {
         @media (max-width: 768px) {
           .mission-grid {
             grid-template-columns: 1fr !important;
-            gap: 48px !important;
+            gap: 40px !important;
           }
+        }
+        @media (max-width: 640px) {
+          #mission { padding: 72px 20px !important; }
         }
       `}</style>
     </section>
