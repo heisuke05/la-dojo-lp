@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -22,26 +24,19 @@ export default function Footer() {
           textAlign: "center",
         }}
       >
-        {/* Logo mark */}
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" opacity="0.7">
-          <circle cx="14" cy="14" r="6" fill="none" stroke="#C09040" strokeWidth="1" />
-          <circle cx="14" cy="14" r="2.5" fill="#C09040" />
-          {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg, i) => {
-            const rad = (deg * Math.PI) / 180;
-            return (
-              <line
-                key={i}
-                x1={14 + 7 * Math.cos(rad)}
-                y1={14 + 7 * Math.sin(rad)}
-                x2={14 + 12 * Math.cos(rad)}
-                y2={14 + 12 * Math.sin(rad)}
-                stroke="#C09040"
-                strokeWidth={i % 2 === 0 ? "0.9" : "0.4"}
-                opacity={i % 2 === 0 ? 0.9 : 0.4}
-              />
-            );
-          })}
-        </svg>
+        {/* Official logo */}
+        <Image
+          src="/logo_w.png"
+          alt="World Divine Light Organization"
+          width={120}
+          height={60}
+          style={{
+            filter:
+              "brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.75)",
+            opacity: 0.75,
+            objectFit: "contain",
+          }}
+        />
 
         <p
           style={{
