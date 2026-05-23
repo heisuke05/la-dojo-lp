@@ -25,9 +25,9 @@ export default function PracticeSection() {
         padding: "100px 24px",
       }}
     >
-      <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "72px" }}>
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <p
             style={{
               fontSize: "0.68rem",
@@ -74,126 +74,75 @@ export default function PracticeSection() {
           </p>
         </div>
 
-        {/* Two-column layout */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "80px",
-            alignItems: "center",
-          }}
-          className="practice-grid"
-        >
-          {/* Left: visual */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              minHeight: "380px",
-              background:
-                "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(192,144,64,0.08) 0%, transparent 70%)",
-              position: "relative",
-            }}
-          >
-            {/* Decorative concentric rings */}
-            <div style={{ position: "relative" }}>
-              {[120, 180, 240, 300].map((size, i) => (
-                <div
-                  key={i}
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: size,
-                    height: size,
-                    border: `1px solid rgba(192,144,64,${0.35 - i * 0.07})`,
-                    borderRadius: "50%",
-                  }}
-                />
-              ))}
-              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style={{ position: "relative", zIndex: 1 }}>
-                <circle cx="60" cy="60" r="24" fill="none" stroke="#C09040" strokeWidth="1.5" />
-                <circle cx="60" cy="60" r="9" fill="#C09040" opacity="0.85" />
-                {Array.from({ length: 20 }, (_, i) => {
-                  const angle = (i * 360) / 20;
-                  const rad = (angle * Math.PI) / 180;
-                  const r1 = 26;
-                  const r2 = i % 2 === 0 ? 52 : 40;
-                  return (
-                    <line
-                      key={i}
-                      x1={60 + r1 * Math.cos(rad)}
-                      y1={60 + r1 * Math.sin(rad)}
-                      x2={60 + r2 * Math.cos(rad)}
-                      y2={60 + r2 * Math.sin(rad)}
-                      stroke="#C09040"
-                      strokeWidth={i % 2 === 0 ? "1.4" : "0.6"}
-                      opacity={i % 2 === 0 ? 0.95 : 0.4}
-                    />
-                  );
-                })}
-                <circle cx="60" cy="60" r="56" fill="none" stroke="#C09040" strokeWidth="0.5" opacity="0.25" />
-              </svg>
-            </div>
-          </div>
-
-          {/* Right: feature list */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
-            {features.map((f) => (
-              <div key={f.num} style={{ display: "flex", gap: "20px" }}>
-                <span
+        {/* Feature list — full width, clean */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+          {features.map((f, i) => (
+            <div
+              key={f.num}
+              style={{
+                display: "flex",
+                gap: "28px",
+                alignItems: "flex-start",
+                padding: "36px 0",
+                borderBottom:
+                  i < features.length - 1
+                    ? "1px solid rgba(192,144,64,0.15)"
+                    : "none",
+              }}
+            >
+              {/* Number */}
+              <span
+                style={{
+                  fontFamily: "var(--font-playfair)",
+                  fontSize: "2rem",
+                  color: "#C09040",
+                  opacity: 0.35,
+                  lineHeight: 1,
+                  flexShrink: 0,
+                  minWidth: "48px",
+                  textAlign: "right",
+                }}
+              >
+                {f.num}
+              </span>
+              {/* Divider */}
+              <div
+                style={{
+                  width: "1px",
+                  alignSelf: "stretch",
+                  background: "rgba(192,144,64,0.2)",
+                  flexShrink: 0,
+                }}
+              />
+              {/* Text */}
+              <div>
+                <h3
                   style={{
                     fontFamily: "var(--font-playfair)",
-                    fontSize: "1.4rem",
-                    color: "#C09040",
-                    opacity: 0.5,
-                    lineHeight: 1,
-                    flexShrink: 0,
-                    marginTop: "4px",
+                    fontSize: "1.2rem",
+                    fontWeight: 500,
+                    color: "#14110C",
+                    marginBottom: "10px",
                   }}
                 >
-                  {f.num}
-                </span>
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-playfair)",
-                      fontSize: "1.1rem",
-                      fontWeight: 500,
-                      color: "#14110C",
-                      marginBottom: "8px",
-                    }}
-                  >
-                    {f.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: "0.95rem",
-                      color: "#5A4E38",
-                      lineHeight: 1.85,
-                      fontFamily: "var(--font-inter)",
-                      fontWeight: 300,
-                    }}
-                  >
-                    {f.body}
-                  </p>
-                </div>
+                  {f.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "0.98rem",
+                    color: "#5A4E38",
+                    lineHeight: 1.85,
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 300,
+                  }}
+                >
+                  {f.body}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .practice-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -11,8 +11,8 @@ const steps = [
   },
   {
     num: "3",
-    title: "Study the Teachings",
-    body: "Attend courses and study groups to deepen your understanding of Divine Law and the spiritual principles behind the practice.",
+    title: "Become a Practitioner",
+    body: "Attend the 3-day Basic Seminar to deepen your understanding of Divine Law. Upon completion, you receive Omitama — a Holy Pendant that qualifies you to channel and share the Art of Divine Light with others.",
   },
   {
     num: "4",

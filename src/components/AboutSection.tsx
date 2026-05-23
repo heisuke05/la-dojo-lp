@@ -52,7 +52,7 @@ const pillars = [
         <circle cx="32" cy="20" r="2" fill="#C09040" opacity="0.6" />
       </svg>
     ),
-    title: "Toward Earthly Paradise",
+    title: "Toward Heaven on Earth",
     body: "As individual souls are purified and elevated, harmony flows into families and communities. This is our shared vision: a world where divine light guides humanity toward peace.",
   },
 ];
