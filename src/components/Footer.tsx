@@ -52,7 +52,7 @@ export default function Footer() {
             fontFamily: "var(--font-inter)",
           }}
         >
-          World Divine Light Organization · Los Angeles Dojo
+          World Divine Light Organization · Los Angeles Spiritual Center
         </p>
 
         <div
@@ -106,7 +106,7 @@ export default function Footer() {
             letterSpacing: "0.06em",
           }}
         >
-          © {year} World Divine Light Organization — Los Angeles Dojo. All rights
+          © {year} World Divine Light Organization — Los Angeles Spiritual Center. All rights
           reserved.
           <br />
           <span style={{ opacity: 0.6 }}>

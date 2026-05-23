@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "World Divine Light Organization — Los Angeles Dojo",
+  title: "World Divine Light Organization — Los Angeles Spiritual Center",
   description:
     "Discover the transformative Art of Divine Light — a sacred practice that purifies the soul and elevates the spirit, open to all people seeking peace, healing, and spiritual growth.",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "nonprofit",
   ],
   openGraph: {
-    title: "World Divine Light Organization — Los Angeles Dojo",
+    title: "World Divine Light Organization — Los Angeles Spiritual Center",
     description:
       "A sacred practice that purifies the soul and elevates the spirit.",
     type: "website",
