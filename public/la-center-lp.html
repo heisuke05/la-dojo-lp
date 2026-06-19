@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Division to Harmony | World Divine Light – LA Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ===== TOKENS ===== */
+    :root {
+      --gold:       #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dark:  #9e7c2a;
+      --cream:      #fdf8f0;
+      --dark:       #1a1410;
+      --mid:        #4a3f35;
+      --muted:      #7a6e65;
+      --white:      #ffffff;
+      --radius:     20px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV — transparent, logo only ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(15, 10, 5, 0.88);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      height: 38px;
+    }
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      /* mix-blend-mode:screen makes the black bg of the logo transparent */
+      mix-blend-mode: screen;
+      filter: brightness(1.1);
+    }
+    .nav-cta-pill {
+      padding: 10px 22px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.25s, border-color 0.25s;
+      white-space: nowrap;
+    }
+    .nav-cta-pill:hover { background: rgba(201,168,76,0.32); border-color: var(--gold-light); }
+    @media (max-width: 500px) {
+      nav { padding: 14px 18px; }
+      .nav-logo img { height: 30px; }
+      .nav-cta-pill { font-size: 0.75rem; padding: 9px 16px; }
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    #hero:hover .hero-bg { transform: scale(1.0); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(20,12,5,0.55) 0%,
+        rgba(30,18,8,0.35) 50%,
+        rgba(15,10,4,0.6) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px 130px; /* top clears nav, bottom clears scroll indicator */
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      color: var(--white);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.82);
+      font-weight: 300;
+      max-width: 560px;
+      margin: 0 auto 44px;
+      line-height: 1.85;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 36px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark);
+      box-shadow: 0 4px 24px rgba(201,168,76,0.45);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.55); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.45);
+    }
+    .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.7), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* ===== SECTION HELPERS ===== */
+    .section { padding: 100px 0; }
+    .container { max-width: 940px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-wrap: balance;
+    }
+    .section-title em { font-style: italic; color: var(--gold-dark); }
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .divider-gold {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      margin: 20px 0 36px;
+    }
+    .text-center { text-align: center; }
+    .text-center .divider-gold { margin: 20px auto 36px; }
+    .text-center .lead { margin: 0 auto; }
+
+    /* ===== PROBLEM ===== */
+    #problem { background: var(--white); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .problem-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .problem-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    .problem-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .problem-text p { font-size: 0.97rem; color: var(--mid); line-height: 1.9; }
+    .problem-text p + p { margin-top: 18px; }
+    .problem-text strong { color: var(--dark); font-weight: 600; }
+
+    /* ===== PHOTO DIVIDER ===== */
+    .photo-divider {
+      height: 420px;
+      background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-divider::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(10,7,3,0.5), rgba(30,18,8,0.3));
+    }
+    .photo-divider-content {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 0 32px;
+      max-width: 800px;
+    }
+    .photo-divider blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.8vw, 1.75rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.7;
+      text-wrap: balance;
+    }
+    .photo-divider blockquote::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: var(--gold-light);
+      opacity: 0.6;
+      display: block;
+      line-height: 0.8;
+      margin-bottom: 12px;
+    }
+    .photo-divider cite {
+      display: block;
+      margin-top: 20px;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== MOBILE GLOBAL ===== */
+    @media (max-width: 768px) {
+      .section { padding: 68px 0; }
+      /* disable iOS parallax bug */
+      .photo-divider, .photo-divider-2 {
+        background-attachment: scroll;
+        height: 300px;
+      }
+    }
+    @media (max-width: 500px) {
+      .section { padding: 52px 0; }
+      .container, .container-wide { padding: 0 18px; }
+      .hero-title { font-size: 2.4rem; }
+      .section-title { font-size: 1.8rem; }
+      .book-steps { padding: 0 4px; }
+      .book-phone-btn { font-size: 0.95rem; padding: 15px 28px; }
+    }
+
+    /* ===== STEPS ===== */
+    #vision { background: var(--cream); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    @media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .step-img { height: 200px; overflow: hidden; }
+    .step-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .step-card:hover .step-img img { transform: scale(1.05); }
+    .step-body { padding: 28px 24px 32px; }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .step-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+      text-wrap: balance;
+    }
+    .step-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .step-body p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+
+    /* ===== TEACHINGS ===== */
+    #teachings { background: var(--white); }
+    .teachings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    @media (max-width: 700px) { .teachings-grid { grid-template-columns: 1fr; } }
+    .t-card {
+      border: 1px solid #ede5d8;
+      border-radius: var(--radius);
+      padding: 36px 28px 40px;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+      transition: box-shadow 0.3s;
+    }
+    .t-card:hover { box-shadow: 0 8px 36px rgba(201,168,76,0.14); }
+    .t-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .t-icon { font-size: 2rem; margin-bottom: 18px; }
+    .t-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+    .t-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+
+    /* ===== PHOTO 2 ===== */
+    .photo-divider-2 {
+      height: 380px;
+      background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 60%;
+      background-attachment: fixed;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonial { background: var(--cream); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testi-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .testi-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-card p {
+      font-size: 0.92rem;
+      color: var(--mid);
+      font-style: italic;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .testi-author { font-size: 0.8rem; color: var(--gold-dark); font-weight: 600; letter-spacing: 0.05em; }
+
+    /* ===== NONPROFIT BADGE ===== */
+    #nonprofit {
+      background: var(--white);
+      padding: 72px 0;
+      border-top: 1px solid #ede5d8;
+      border-bottom: 1px solid #ede5d8;
+    }
+    .nonprofit-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .nonprofit-badge {
+      flex-shrink: 0;
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    }
+    .nonprofit-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .nonprofit-text p { font-size: 0.93rem; color: var(--muted); line-height: 1.85; max-width: 640px; }
+
+    /* ===== CTA BOOKING ===== */
+    #book {
+      background: linear-gradient(160deg, #1a100a 0%, #2e1c0e 50%, #1a100a 100%);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #book::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 50% 10%, rgba(201,168,76,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 20% 90%, rgba(201,168,76,0.07) 0%, transparent 55%);
+    }
+    .book-inner { position: relative; z-index: 1; }
+    .book-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 18px;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+    .book-title em { color: var(--gold-light); font-style: italic; }
+    .book-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 560px;
+      margin: 0 auto 44px;
+      line-height: 1.85;
+    }
+    .book-steps {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 44px;
+      text-align: left;
+    }
+    .book-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.92rem;
+    }
+    .book-step-num {
+      width: 28px; height: 28px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--dark);
+      flex-shrink: 0;
+    }
+    .book-phone-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 44px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark);
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      box-shadow: 0 6px 28px rgba(201,168,76,0.45);
+      transition: all 0.25s;
+    }
+    .book-phone-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,168,76,0.55); }
+    .book-phone-icon { font-size: 1.2rem; }
+    .book-note {
+      margin-top: 24px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    /* ===== MAP / LOCATION ===== */
+    #location { background: var(--cream); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    @media (max-width: 700px) { .location-grid { grid-template-columns: 1fr; } }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      aspect-ratio: 4/3;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .location-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .info-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .info-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); font-weight: 600; margin-bottom: 3px; }
+    .info-value { font-size: 0.93rem; color: var(--mid); line-height: 1.5; }
+    .info-value a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
+    .info-value a:hover { text-decoration: underline; }
+    .hours-grid { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 0.88rem; color: var(--mid); margin-top: 4px; }
+    .hours-grid .day { font-weight: 500; color: var(--dark); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      padding: 48px 0;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-copy { color: rgba(255,255,255,0.2); font-size: 0.75rem; }
+    .footer-photo-credit { color: rgba(255,255,255,0.15); font-size: 0.68rem; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#">
+    <img
+      src="/logo_w.png"
+      alt="World Divine Light"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+    />
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:#fff; letter-spacing:0.04em;">World Divine Light</span>
+  </a>
+  <a class="nav-cta-pill" href="#book">Book a Session</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">World Divine Light &mdash; Los Angeles Center</span>
+    <h1 class="hero-title">
+      From an Age of Division<br>to an Age of <em>Harmony.</em>
+    </h1>
+    <p class="hero-sub">
+      We live in a time of deep separation — politically, socially, and within ourselves.
+      A new era is emerging. And it begins with the elevation of the soul.
+    </p>
+    <div class="hero-btns">
+      <a class="btn btn-gold" href="#book">Book a Divine Light Session</a>
+      <a class="btn btn-ghost" href="#vision">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section id="problem" class="section">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-img">
+        <img
+          src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=85&auto=format&fit=crop"
+          alt="Person quietly reflecting by a window"
+          loading="lazy"
+        />
+      </div>
+      <div class="problem-text">
+        <p class="eyebrow">The Challenge of Our Time</p>
+        <h2 class="section-title">Why Does <em>Harmony</em> Matter Now?</h2>
+        <div class="divider-gold"></div>
+        <p>
+          Conflict. Division. Loneliness. These aren't just headlines —
+          they're the quiet weight many of us carry every day.
+          Despite all of our technological progress, anxiety and disconnection continue to grow.
+        </p>
+        <p>
+          For generations, we have been conditioned to compete, to compare, to put ourselves first.
+          And yet deep within, we sense that this is not who we truly are.
+        </p>
+        <p>
+          We are at a <strong>turning point in history.</strong> The age of separation is giving way
+          to an age of harmony — but that shift cannot happen in the world
+          until it first happens within us. The key lies in the elevation of our souls
+          and the transformation of our innermost thoughts.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO QUOTE ===== -->
+<div class="photo-divider">
+  <div class="photo-divider-content">
+    <blockquote>
+      Crossing the barriers of race, culture, and religion —
+      so that people can forgive, help, love, and support one another.
+      We pray for a world where compassion comes naturally,
+      and love is made manifest.
+    </blockquote>
+    <cite>— From the Mission of World Divine Light</cite>
+  </div>
+</div>
+
+<!-- ===== 3 STEPS ===== -->
+<section id="vision" class="section">
+  <div class="container">
+    <div class="text-center">
+      <p class="eyebrow">The Path Forward</p>
+      <h2 class="section-title">Three Steps Toward <em>Soul Elevation</em></h2>
+      <div class="divider-gold"></div>
+      <p class="lead">
+        The teachings of World Divine Light guide you through a natural process
+        of inner change — one that ripples outward into your relationships and your world.
+      </p>
+    </div>
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-img">
+          <img
+            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80&auto=format&fit=crop"
+            alt="Person standing in a golden sunrise field"
+            loading="lazy"
+          />
+        </div>
+        <div class="step-body">
+          <div class="step-num">01</div>
+          <div class="step-tag">Recognize the patterns within</div>
+          <h3>Awaken</h3>
+          <p>
+            Competition, resentment, self-centeredness — most of us carry these patterns
+            without realizing it. Awareness is the first and most essential step.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img">
+          <img
+            src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80&auto=format&fit=crop"
+            alt="Sunlight streaming through trees"
+            loading="lazy"
+          />
+        </div>
+        <div class="step-body">
+          <div class="step-num">02</div>
+          <div class="step-tag">Receive the light of God</div>
+          <h3>Purify</h3>
+          <p>
+            Through the Art of Divine Light — a gentle spiritual practice —
+            the soul, mind, and body are cleansed of unseen burdens,
+            allowing your true nature to emerge.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img">
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80&auto=format&fit=crop"
+            alt="Two people walking in golden hour light"
+            loading="lazy"
+          />
+        </div>
+        <div class="step-body">
+          <div class="step-num">03</div>
+          <div class="step-tag">Live in harmony with others</div>
+          <h3>Give</h3>
+          <p>
+            When we begin to live for others — not just ourselves — something shifts.
+            Joy becomes shared. Relationships heal. Harmony begins to take root.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEACHINGS ===== -->
+<section id="teachings" class="section">
+  <div class="container">
+    <div class="text-center">
+      <p class="eyebrow">Core Teachings</p>
+      <h2 class="section-title">What We <em>Offer</em></h2>
+      <div class="divider-gold"></div>
+    </div>
+    <div class="teachings-grid">
+
+      <div class="t-card">
+        <div class="t-icon">🌟</div>
+        <h3>The Art of Divine Light</h3>
+        <p>
+          Known as <em>Mahikari-no-waza</em>, this is the practice of extending the hands
+          to channel Divine Light — purifying soul, mind, and body, and bringing
+          harmony to the invisible world around us.
+        </p>
+      </div>
+
+      <div class="t-card">
+        <div class="t-icon">⚖️</div>
+        <h3>The Divine Universal Laws</h3>
+        <p>
+          Creation unfolds according to God's plan. When we understand the spiritual laws
+          that govern our lives, we can stop struggling against them and begin to live
+          with deeper meaning and purpose.
+        </p>
+      </div>
+
+      <div class="t-card">
+        <div class="t-icon">💫</div>
+        <h3>Elevating the Innermost Mind</h3>
+        <p>
+          In our teachings, the <em>Sonen</em> — your innermost thoughts and intentions —
+          shapes your reality. Shifting from fear and self-focus to gratitude and generosity
+          is how we become instruments of harmony.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO 2 ===== -->
+<div class="photo-divider-2"></div>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonial" class="section">
+  <div class="container">
+    <div class="text-center">
+      <p class="eyebrow">Community Voices</p>
+      <h2 class="section-title">Words from <em>Our Community</em></h2>
+      <div class="divider-gold"></div>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>
+          "I came in feeling burned out and disconnected. What I found wasn't
+          a religion — it was a practice. Slowly, the anxiety I'd carried for years
+          began to lift. My relationships changed. I changed."
+        </p>
+        <span class="testi-author">LA Center Participant, 40s</span>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>
+          "I was so caught up in competition — at work, in life. Learning to live with
+          a spirit of giving felt counterintuitive at first. But things began to open up
+          in ways I never expected."
+        </p>
+        <span class="testi-author">LA Center Participant, 30s</span>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>
+          "What moves me most is being in a room with people from so many different
+          backgrounds — all connected by the same light. In a city as divided as LA,
+          this community feels like a glimpse of what's possible."
+        </p>
+        <span class="testi-author">LA Center Participant, 50s</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== NONPROFIT ===== -->
+<section id="nonprofit">
+  <div class="container">
+    <div class="nonprofit-inner">
+      <div class="nonprofit-badge">🕊️</div>
+      <div class="nonprofit-text">
+        <h3>A Non-Profit, Service-First Community</h3>
+        <p>
+          World Divine Light is a registered non-profit organization. Our center is sustained
+          through the voluntary monthly offerings of our members — a suggested minimum of
+          <strong>$10 for membership</strong> and <strong>$10 for center maintenance</strong>.
+          These are not fees, but expressions of gratitude — a way of honoring the light you
+          receive and helping ensure our doors remain open to all who seek it.
+          Visitors are always welcome, and we invite you to simply come and experience for yourself.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOK A SESSION ===== -->
+<section id="book">
+  <div class="container book-inner">
+    <p class="eyebrow" style="color:var(--gold-light);">Visit the Dojo</p>
+    <h2 class="book-title">
+      Experience <em>Divine Light</em><br>for Yourself
+    </h2>
+    <p class="book-sub">
+      The best way to understand this practice is to experience it.
+      Book a complimentary Divine Light session at our LA Center —
+      just send us a text message to reserve your time.
+    </p>
+
+    <div class="book-steps">
+      <div class="book-step">
+        <div class="book-step-num">1</div>
+        <span>Send a text message to our LA Center</span>
+      </div>
+      <div class="book-step">
+        <div class="book-step-num">2</div>
+        <span>We'll confirm a time that works for you (Tue–Sat 10am–6pm · Sun 9am–4pm)</span>
+      </div>
+      <div class="book-step">
+        <div class="book-step-num">3</div>
+        <span>Visit us and receive your first Divine Light session</span>
+      </div>
+    </div>
+
+    <a class="book-phone-btn" href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session.">
+      <span class="book-phone-icon">💬</span>
+      Text Us: (626) 861-5069
+    </a>
+
+    <p class="book-note">
+      No experience or religious background required. All are welcome.<br>
+      You can also call us or email us at <a href="mailto:info@worlddivinelight.org" style="color:var(--gold-light);text-decoration:none;"><!-- UPDATE EMAIL --> info@worlddivinelight.org</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section id="location" class="section">
+  <div class="container">
+    <div class="text-center">
+      <p class="eyebrow">Find Us</p>
+      <h2 class="section-title">Visit the <em>LA Center</em></h2>
+      <div class="divider-gold"></div>
+    </div>
+    <div class="location-grid">
+
+      <div class="map-wrap">
+        <iframe
+          title="World Divine Light LA Center Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.5!2d-118.1523!3d34.0603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s809+S+Atlantic+Blvd%2C+Monterey+Park%2C+CA+91754!5e0!3m2!1sen!2sus!4v1234567890"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="location-info">
+        <h3>World Divine Light<br>Los Angeles Center</h3>
+
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-value">
+              809 S Atlantic Blvd, Unit 378<br>
+              Monterey Park, CA 91754
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">💬</div>
+          <div>
+            <div class="info-label">Phone / Text</div>
+            <div class="info-value">
+              <a href="tel:+16268615069">(626) 861-5069</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">✉️</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value">
+              <a href="mailto:info@worlddivinelight.org"><!-- UPDATE EMAIL --> info@worlddivinelight.org</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label">Hours</div>
+            <div class="info-value">
+              <div class="hours-grid">
+                <span class="day">Tue – Sat</span><span>10:00 AM – 6:00 PM</span>
+                <span class="day">Sunday</span><span>9:00 AM – 4:00 PM</span>
+                <span class="day">Monday</span><span>Closed</span>
+              </div>
+              <span style="font-size:0.8rem;color:#9a8a7a;margin-top:6px;display:block;">Hours may vary — please text ahead to confirm.</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn-gold" href="https://maps.google.com/?q=809+S+Atlantic+Blvd+Unit+378+Monterey+Park+CA+91754" target="_blank" style="margin-top:12px;">
+          Get Directions →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p class="footer-logo">World Divine Light</p>
+    <div class="footer-links">
+      <a href="https://www.worlddivinelight.org/en/about" target="_blank">About</a>
+      <a href="https://www.worlddivinelight.org/en/teachings" target="_blank">Teachings</a>
+      <a href="https://www.worlddivinelight.org/en/testimony" target="_blank">Testimony</a>
+      <a href="https://www.worlddivinelight.org/en/contact" target="_blank">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 World Divine Light – Los Angeles Center. All rights reserved.</p>
+    <p class="footer-photo-credit">Photos: Unsplash (free for use under Unsplash License)</p>
+  </div>
+</footer>
+
+<script>
+  // Nav: add dark background after scrolling past hero
+  const nav = document.getElementById('main-nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>
