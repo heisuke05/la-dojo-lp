@@ -4,6 +4,7 @@ import PracticeSection from "@/components/PracticeSection";
 import QuoteSection from "@/components/QuoteSection";
 import MissionSection from "@/components/MissionSection";
 import JourneySection from "@/components/JourneySection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import LocationSection from "@/components/LocationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <QuoteSection />
         <MissionSection />
         <JourneySection />
+        <TestimonialsSection />
         <LocationSection />
         <ContactSection />
       </main>
