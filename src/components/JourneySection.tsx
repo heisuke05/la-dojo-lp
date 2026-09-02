@@ -156,7 +156,10 @@ export default function JourneySection() {
 
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: "64px" }}>
-          <a href="#contact" className="btn-gold-solid">
+          <a
+            href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
+            className="btn-gold-solid"
+          >
             Begin Your Journey
           </a>
         </div>
