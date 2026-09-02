@@ -1,23 +1,23 @@
 const steps = [
   {
     num: "1",
-    title: "Visit the Center",
-    body: "Come to the Los Angeles Spiritual Center for a free introduction session. No prior knowledge or commitment is required — simply arrive with an open heart.",
+    title: "Book a Visit",
+    body: "Reserve your visit to the Los Angeles Center. Simply send us a text or email — no prior experience or religious background required.",
   },
   {
     num: "2",
     title: "Receive Okiyome",
-    body: "Experience the Art of Divine Light firsthand. Many people report a sense of deep calm, warmth, and clarity even after a single session.",
+    body: "Visit the center and experience the Art of Divine Light firsthand. Many people report a sense of deep calm, warmth, and clarity even after a single session.",
   },
   {
     num: "3",
-    title: "Become a Practitioner",
-    body: "Attend the 3-day Basic Seminar to deepen your understanding of Divine Law. Upon completion, you receive Omitama — a Holy Pendant that qualifies you to channel and share the Art of Divine Light with others.",
+    title: "Continue Your Practice",
+    body: "Return for follow-up sessions and experience the wonder of Divine Light for yourself. Repeat steps 1–3 as you deepen your connection.",
   },
   {
     num: "4",
-    title: "Share the Light",
-    body: "Become a channel of divine blessing. As a member, you too can offer Okiyome — extending this gift to family, friends, and community.",
+    title: "Become a Practitioner",
+    body: "Attend the 3-day Basic Seminar to deepen your understanding of Divine Law. Receive Omitama — a Holy Pendant — and begin sharing the Art of Divine Light with family, friends, and community.",
   },
 ];
 
@@ -76,7 +76,10 @@ export default function JourneySection() {
               key={step.num}
               style={{
                 padding: "40px 32px",
-                borderRight: i < steps.length - 1 ? "1px solid rgba(192,144,64,0.15)" : "none",
+                borderRight:
+                  i < steps.length - 1
+                    ? "1px solid rgba(192,144,64,0.15)"
+                    : "none",
                 position: "relative",
               }}
               className="journey-step"
