@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "The Practice", href: "#practice" },
-  { label: "Mission", href: "#mission" },
+  { label: "Getting Started", href: "#journey" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Location", href: "#location" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -99,7 +99,7 @@ export default function Navbar() {
 
       {/* Desktop nav */}
       <nav
-        style={{ display: "flex", alignItems: "center", gap: "28px" }}
+        style={{ display: "flex", alignItems: "center", gap: "24px" }}
         className="hidden md:flex"
       >
         {navLinks.map((l) => (
@@ -126,7 +126,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="#contact"
+          href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
           style={{
             padding: "8px 20px",
             border: "1px solid #C09040",
@@ -148,7 +148,7 @@ export default function Navbar() {
             ((e.target as HTMLElement).style.background = "transparent")
           }
         >
-          Reach Out
+          Book a Visit
         </a>
       </nav>
 
@@ -215,6 +215,21 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          <a
+            href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
+            onClick={() => setMenuOpen(false)}
+            style={{
+              color: "#DDB96A",
+              textDecoration: "none",
+              fontSize: "0.85rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              fontFamily: "var(--font-inter)",
+              fontWeight: 600,
+            }}
+          >
+            Book a Visit
+          </a>
         </div>
       )}
     </header>
