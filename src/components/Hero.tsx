@@ -206,11 +206,14 @@ export default function Hero() {
           }}
           className="anim-fade-up anim-delay-4"
         >
-          <a href="#practice" className="btn-gold-solid">
-            Discover the Practice
+          <a
+            href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
+            className="btn-gold-solid"
+          >
+            Book a Visit
           </a>
-          <a href="#contact" className="btn-gold">
-            Visit the Center
+          <a href="#practice" className="btn-gold">
+            Discover the Practice
           </a>
         </div>
       </div>
