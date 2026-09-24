@@ -1,7 +1,7 @@
 "use client";
 
 const schedule = [
-  { day: "Sunday",    time: "10:00 AM – 6:00 PM", label: "" },
+  { day: "Sunday",    time: "9:00 AM – 4:00 PM",  label: "" },
   { day: "Monday",    time: "Closed",              label: "" },
   { day: "Tuesday",   time: "10:00 AM – 6:00 PM", label: "" },
   { day: "Wednesday", time: "10:00 AM – 6:00 PM", label: "" },
