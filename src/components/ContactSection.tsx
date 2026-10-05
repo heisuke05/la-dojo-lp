@@ -1,4 +1,47 @@
+"use client";
+
+import { useState } from "react";
+
+type FormState = "idle" | "submitting" | "success" | "error";
+
 export default function ContactSection() {
+  const [showForm, setShowForm] = useState(false);
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [form, setForm] = useState({ name: "", email: "", preferredTime: "", message: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("submitting");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setFormState("success");
+        setForm({ name: "", email: "", preferredTime: "", message: "" });
+      } else {
+        setFormState("error");
+      }
+    } catch {
+      setFormState("error");
+    }
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "14px 16px",
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid rgba(192,144,64,0.3)",
+    color: "#F5EDD5",
+    fontFamily: "var(--font-inter)",
+    fontSize: "0.92rem",
+    outline: "none",
+    boxSizing: "border-box",
+    transition: "border-color 0.2s",
+  };
+
   return (
     <section
       id="contact"
@@ -71,9 +114,9 @@ export default function ContactSection() {
             fontWeight: 300,
           }}
         >
-          We welcome all sincere seekers. Reach out by phone or text — our
-          members are always happy to answer questions, arrange a visit, or
-          simply share more about what we do.
+          We welcome all sincere seekers. Reach out by phone, text, or the form
+          below — our members are always happy to answer questions, arrange a
+          visit, or simply share more about what we do.
         </p>
 
         {/* Phone display */}
@@ -140,7 +183,151 @@ export default function ContactSection() {
             </svg>
             Send a Text
           </a>
+          <button
+            onClick={() => setShowForm(!showForm)}
+            className="btn-gold"
+            style={{ gap: "10px", cursor: "pointer", border: "1px solid rgba(192,144,64,0.5)", background: "transparent" }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="1" y="2" width="14" height="10" rx="1" stroke="#DDB96A" strokeWidth="1.2" />
+              <polyline points="1,3 8,9 15,3" stroke="#DDB96A" strokeWidth="1.2" strokeLinejoin="round" />
+            </svg>
+            Send a Message
+          </button>
         </div>
+
+        {/* Web form (expanded) */}
+        {showForm && (
+          <div
+            style={{
+              textAlign: "left",
+              padding: "40px",
+              border: "1px solid rgba(192,144,64,0.2)",
+              background: "rgba(255,255,255,0.03)",
+              marginBottom: "48px",
+            }}
+          >
+            {formState === "success" ? (
+              <div style={{ textAlign: "center", padding: "32px 0" }}>
+                <p
+                  style={{
+                    fontFamily: "var(--font-playfair)",
+                    fontSize: "1.5rem",
+                    color: "#DDB96A",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Thank You
+                </p>
+                <p
+                  style={{
+                    color: "#B8A070",
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.95rem",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Your message has been received. We will be in touch soon.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-playfair)",
+                    fontSize: "1.2rem",
+                    fontWeight: 400,
+                    color: "#F5EDD5",
+                    marginBottom: "28px",
+                  }}
+                >
+                  Send Us a Message
+                </h3>
+
+                <div style={{ display: "grid", gap: "20px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="form-row">
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A6840", fontFamily: "var(--font-inter)", marginBottom: "8px" }}>
+                        Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        placeholder="Your name"
+                        style={inputStyle}
+                        onFocus={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.8)")}
+                        onBlur={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.3)")}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A6840", fontFamily: "var(--font-inter)", marginBottom: "8px" }}>
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        placeholder="your@email.com"
+                        style={inputStyle}
+                        onFocus={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.8)")}
+                        onBlur={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.3)")}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style={{ display: "block", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A6840", fontFamily: "var(--font-inter)", marginBottom: "8px" }}>
+                      Preferred Date / Time (optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={form.preferredTime}
+                      onChange={(e) => setForm({ ...form, preferredTime: e.target.value })}
+                      placeholder="e.g. Saturday morning, any weekday afternoon"
+                      style={inputStyle}
+                      onFocus={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.8)")}
+                      onBlur={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.3)")}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: "block", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A6840", fontFamily: "var(--font-inter)", marginBottom: "8px" }}>
+                      Message *
+                    </label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      placeholder="Feel free to ask any questions or share how you found us…"
+                      style={{ ...inputStyle, resize: "vertical" }}
+                      onFocus={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.8)")}
+                      onBlur={(e) => (e.target.style.borderColor = "rgba(192,144,64,0.3)")}
+                    />
+                  </div>
+
+                  {formState === "error" && (
+                    <p style={{ fontSize: "0.85rem", color: "#E08070", fontFamily: "var(--font-inter)" }}>
+                      Something went wrong. Please try again or contact us by phone.
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={formState === "submitting"}
+                    className="btn-gold-solid"
+                    style={{ justifyContent: "center", opacity: formState === "submitting" ? 0.7 : 1, cursor: formState === "submitting" ? "default" : "pointer" }}
+                  >
+                    {formState === "submitting" ? "Sending…" : "Send Message"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        )}
 
         {/* Note */}
         <p
@@ -157,6 +344,12 @@ export default function ContactSection() {
           All are welcome — regardless of background or belief.
         </p>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .form-row { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }
