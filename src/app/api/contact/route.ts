@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   }
 
   const { error } = await resend.emails.send({
-    from: "LA Spiritual Center <contact@la.worlddivinelight.org>",
+    from: "LA Spiritual Center <onboarding@resend.dev>",
     to: "losangeles@worlddivinelight.org",
     replyTo: email,
     subject: `New Contact Inquiry from ${name}`,
