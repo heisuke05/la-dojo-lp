@@ -126,6 +126,56 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
+        {/* CTA banner */}
+        <div
+          style={{
+            marginTop: "64px",
+            padding: "48px 40px",
+            background: "linear-gradient(135deg, #14110C 0%, #261F10 100%)",
+            borderRadius: "2px",
+            textAlign: "center",
+            border: "1px solid rgba(192,144,64,0.2)",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "0.68rem",
+              letterSpacing: "0.26em",
+              textTransform: "uppercase",
+              color: "#C09040",
+              fontFamily: "var(--font-inter)",
+              marginBottom: "16px",
+            }}
+          >
+            Ready to Experience It?
+          </p>
+          <h3
+            style={{
+              fontFamily: "var(--font-playfair)",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              fontWeight: 400,
+              color: "#F5EDD5",
+              marginBottom: "28px",
+              lineHeight: 1.3,
+            }}
+          >
+            Your first visit is{" "}
+            <em style={{ color: "#DDB96A", fontStyle: "italic" }}>
+              always free
+            </em>
+          </h3>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a
+              href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
+              className="btn-gold-solid"
+            >
+              Book by Text
+            </a>
+            <a href="#contact" className="btn-gold">
+              Send a Message
+            </a>
+          </div>
+        </div>
       </div>
 
       <style>{`

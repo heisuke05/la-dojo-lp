@@ -5,7 +5,7 @@ import { useState } from "react";
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactSection() {
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   const [formState, setFormState] = useState<FormState>("idle");
   const [form, setForm] = useState({ name: "", email: "", preferredTime: "", message: "" });
 
@@ -114,9 +114,9 @@ export default function ContactSection() {
             fontWeight: 300,
           }}
         >
-          We welcome all sincere seekers. Reach out by phone, text, or the form
-          below — our members are always happy to answer questions, arrange a
-          visit, or simply share more about what we do.
+          We welcome all sincere seekers. Call, text, or fill in the form below —
+          our members are always happy to answer questions, arrange a visit, or
+          share more about what we do.
         </p>
 
         {/* Phone display */}

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const features = [
   {
     num: "01",
@@ -25,7 +27,7 @@ export default function PracticeSection() {
         padding: "100px 24px",
       }}
     >
-      <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <p
@@ -74,75 +76,185 @@ export default function PracticeSection() {
           </p>
         </div>
 
-        {/* Feature list — full width, clean */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-          {features.map((f, i) => (
+        {/* 2-column: photo + features */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "64px",
+            alignItems: "start",
+          }}
+          className="practice-grid"
+        >
+          {/* Left: Okiyome photo */}
+          <div style={{ position: "relative" }}>
             <div
-              key={f.num}
               style={{
-                display: "flex",
-                gap: "28px",
-                alignItems: "flex-start",
-                padding: "36px 0",
-                borderBottom:
-                  i < features.length - 1
-                    ? "1px solid rgba(192,144,64,0.15)"
-                    : "none",
+                position: "relative",
+                width: "100%",
+                aspectRatio: "4/5",
+                overflow: "hidden",
+                borderRadius: "2px",
               }}
             >
-              {/* Number */}
-              <span
-                style={{
-                  fontFamily: "var(--font-playfair)",
-                  fontSize: "2rem",
-                  color: "#C09040",
-                  opacity: 0.35,
-                  lineHeight: 1,
-                  flexShrink: 0,
-                  minWidth: "48px",
-                  textAlign: "right",
-                }}
-              >
-                {f.num}
-              </span>
-              {/* Divider */}
+              <Image
+                src="/photo-okiyome.jpg"
+                alt="Okiyome — the Art of Divine Light being practiced at the Los Angeles Spiritual Center"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center 15%" }}
+              />
+              {/* Warm gold frame accent */}
               <div
                 style={{
-                  width: "1px",
-                  alignSelf: "stretch",
-                  background: "rgba(192,144,64,0.2)",
-                  flexShrink: 0,
+                  position: "absolute",
+                  inset: 0,
+                  boxShadow: "inset 0 0 0 1px rgba(192,144,64,0.25)",
+                  pointerEvents: "none",
                 }}
               />
-              {/* Text */}
-              <div>
-                <h3
+            </div>
+            {/* Decorative offset frame */}
+            <div
+              style={{
+                position: "absolute",
+                top: "16px",
+                left: "-16px",
+                right: "16px",
+                bottom: "-16px",
+                border: "1px solid rgba(192,144,64,0.2)",
+                zIndex: -1,
+              }}
+              className="practice-frame"
+            />
+            {/* Caption */}
+            <div
+              style={{
+                marginTop: "20px",
+                paddingLeft: "4px",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "0.78rem",
+                  color: "#9A8060",
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 300,
+                  fontStyle: "italic",
+                  lineHeight: 1.6,
+                }}
+              >
+                Okiyome being shared at the Los Angeles Spiritual Center.
+                Practitioners channel Divine Light through an outstretched hand,
+                requiring no physical contact.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Feature list */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+            {features.map((f, i) => (
+              <div
+                key={f.num}
+                style={{
+                  display: "flex",
+                  gap: "24px",
+                  alignItems: "flex-start",
+                  padding: "32px 0",
+                  borderBottom:
+                    i < features.length - 1
+                      ? "1px solid rgba(192,144,64,0.15)"
+                      : "none",
+                }}
+              >
+                <span
                   style={{
                     fontFamily: "var(--font-playfair)",
-                    fontSize: "1.2rem",
-                    fontWeight: 500,
-                    color: "#14110C",
-                    marginBottom: "10px",
+                    fontSize: "1.7rem",
+                    color: "#C09040",
+                    opacity: 0.35,
+                    lineHeight: 1,
+                    flexShrink: 0,
+                    minWidth: "40px",
+                    textAlign: "right",
                   }}
                 >
-                  {f.title}
-                </h3>
-                <p
+                  {f.num}
+                </span>
+                <div
                   style={{
-                    fontSize: "0.98rem",
-                    color: "#5A4E38",
-                    lineHeight: 1.85,
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 300,
+                    width: "1px",
+                    alignSelf: "stretch",
+                    background: "rgba(192,144,64,0.2)",
+                    flexShrink: 0,
                   }}
-                >
-                  {f.body}
-                </p>
+                />
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-playfair)",
+                      fontSize: "1.1rem",
+                      fontWeight: 500,
+                      color: "#14110C",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    {f.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "0.92rem",
+                      color: "#5A4E38",
+                      lineHeight: 1.85,
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {f.body}
+                  </p>
+                </div>
               </div>
+            ))}
+
+            {/* CTA */}
+            <div style={{ marginTop: "36px" }}>
+              <a
+                href="#contact"
+                className="btn-gold-solid"
+                style={{ display: "inline-flex" }}
+              >
+                Experience Okiyome — It&apos;s Free
+              </a>
+              <p
+                style={{
+                  fontSize: "0.75rem",
+                  color: "#9A8060",
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 300,
+                  marginTop: "12px",
+                }}
+              >
+                First visits are always free. No commitment required.
+              </p>
             </div>
-          ))}
+          </div>
         </div>
       </div>
+
+      <style>{`
+        .practice-grid {
+          position: relative;
+        }
+        @media (max-width: 768px) {
+          .practice-grid {
+            grid-template-columns: 1fr !important;
+            gap: 48px !important;
+          }
+          .practice-frame {
+            display: none;
+          }
+          #practice { padding: 72px 20px !important; }
+        }
+      `}</style>
     </section>
   );
 }

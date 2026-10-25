@@ -156,12 +156,20 @@ export default function JourneySection() {
 
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: "64px" }}>
-          <a
-            href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
-            className="btn-gold-solid"
-          >
-            Begin Your Journey
-          </a>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a
+              href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
+              className="btn-gold-solid"
+            >
+              Begin Your Journey
+            </a>
+            <a href="#contact" className="btn-gold">
+              Send a Message Online
+            </a>
+          </div>
+          <p style={{ fontSize: "0.75rem", color: "#9A8060", fontFamily: "var(--font-inter)", fontWeight: 300, marginTop: "16px" }}>
+            First visits are free. All are welcome.
+          </p>
         </div>
       </div>
 
