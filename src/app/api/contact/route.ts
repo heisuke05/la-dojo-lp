@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
   const { error } = await resend.emails.send({
     from: "LA Spiritual Center <onboarding@resend.dev>",
-    to: "ads@worlddivinelight.org",
+    to: "losangeles@worlddivinelight.org",
     replyTo: email,
     subject: `New Contact Inquiry from ${name}`,
     html: `
