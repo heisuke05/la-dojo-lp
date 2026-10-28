@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   }
 
   const { error } = await resend.emails.send({
-    from: "LA Spiritual Center <onboarding@resend.dev>",
+    from: "LA Spiritual Center <noreply@la.worlddivinelight.org>",
     to: "losangeles@worlddivinelight.org",
     replyTo: email,
     subject: `New Contact Inquiry from ${name}`,
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
   if (error) {
     console.error("Resend error:", error);
-    return NextResponse.json({ error: "Failed to send email", detail: error }, { status: 500 });
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 
   return NextResponse.json({ success: true });
