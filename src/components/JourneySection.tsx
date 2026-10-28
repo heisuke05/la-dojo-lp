@@ -1,3 +1,5 @@
+import { SmsLink } from "@/components/TrackingLink";
+
 const steps = [
   {
     num: "1",
@@ -157,12 +159,12 @@ export default function JourneySection() {
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: "64px" }}>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
+            <SmsLink
               href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
               className="btn-gold-solid"
             >
               Begin Your Journey
-            </a>
+            </SmsLink>
             <a href="#contact" className="btn-gold">
               Send a Message Online
             </a>

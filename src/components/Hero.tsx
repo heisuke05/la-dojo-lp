@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SmsLink } from "@/components/TrackingLink";
 
 export default function Hero() {
   return (
@@ -131,12 +132,12 @@ export default function Hero() {
             style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}
             className="anim-fade-up anim-delay-3"
           >
-            <a
+            <SmsLink
               href="sms:+16268615069&body=Hello%2C%20I%27d%20like%20to%20book%20a%20Divine%20Light%20session."
               className="btn-gold-solid"
             >
               Book a Free Visit
-            </a>
+            </SmsLink>
             <a href="#contact" className="btn-gold">
               Send a Message
             </a>

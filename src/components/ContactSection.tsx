@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackFormSubmit, trackPhoneClick, trackSmsClick } from "@/lib/gtag";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -19,6 +20,7 @@ export default function ContactSection() {
         body: JSON.stringify(form),
       });
       if (res.ok) {
+        trackFormSubmit();
         setFormState("success");
         setForm({ name: "", email: "", preferredTime: "", message: "" });
       } else {
@@ -165,6 +167,7 @@ export default function ContactSection() {
             href="tel:+16268615069"
             className="btn-gold-solid"
             style={{ gap: "10px" }}
+            onClick={trackPhoneClick}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M14.5 11c0 .3-.1.6-.2.8-.2.3-.3.5-.5.7-.3.4-.7.6-1.2.7-.4.1-.9 0-1.3-.1-1.1-.4-2.2-.9-3.2-1.7-.9-.7-1.7-1.6-2.4-2.5-.7-.9-1.2-1.9-1.6-2.9-.2-.5-.2-.9 0-1.3.1-.4.3-.8.7-1.1l.7-.7c.2-.2.4-.2.6 0l1.8 1.8c.2.2.2.4 0 .6l-.7.7c-.1.1-.1.3 0 .4.4.6.8 1.2 1.3 1.7.5.5 1.1 1 1.7 1.3.1.1.3.1.4 0l.7-.7c.2-.2.4-.2.6 0l1.8 1.8c.1.1.1.3 0 .5l-.1.2v-.1z" fill="currentColor" />
@@ -175,6 +178,7 @@ export default function ContactSection() {
             href="sms:+16268615069"
             className="btn-gold"
             style={{ gap: "10px" }}
+            onClick={trackSmsClick}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M13 1H3C2 1 1 2 1 3v7c0 1 1 2 2 2h2l2 3 2-3h4c1 0 2-1 2-2V3c0-1-1-2-2-2z" fill="none" stroke="#DDB96A" strokeWidth="1.2" strokeLinejoin="round" />
