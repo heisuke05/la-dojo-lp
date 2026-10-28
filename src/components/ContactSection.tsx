@@ -22,9 +22,6 @@ export default function ContactSection() {
         setFormState("success");
         setForm({ name: "", email: "", preferredTime: "", message: "" });
       } else {
-        const data = await res.json().catch(() => ({}));
-        console.error("Contact form error:", data);
-        alert("Error: " + JSON.stringify(data));
         setFormState("error");
       }
     } catch {
