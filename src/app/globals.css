@@ -22,8 +22,22 @@
   --color-site-white: #FFFFFF;
   --color-site-text: #2E2618;
   --color-muted: #7A6840;
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+
+  --color-brand-cream: #FAF6F0;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-card: #FDFCF9;
+  --color-brand-border: #E8E1D5;
+  --color-brand-dark: #2A2522;
+  --color-brand-muted: #6C655E;
+  --color-brand-terracotta: #DE7356;
+  --color-brand-terracottaHover: #C86348;
+  --color-brand-sage: #5B8266;
+  --color-brand-sageLight: #EBF2ED;
+  --color-brand-gold: #C29243;
+  --color-brand-goldLight: #FBF5EB;
+
+  --font-sans: var(--font-plus-jakarta), var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), var(--font-noto-serif-jp), var(--font-playfair), Georgia, serif;
 }
 
 html {
@@ -31,10 +45,31 @@ html {
 }
 
 body {
-  background: var(--cream);
-  color: var(--text);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  background: #FAF6F0;
+  color: #2A2522;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+.retro-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.retro-card:hover {
+  transform: translateY(-3px);
+}
+
+.shadow-retro {
+  box-shadow: 0 8px 30px rgba(42, 37, 34, 0.05);
+}
+.shadow-retro-hover {
+  box-shadow: 0 16px 40px rgba(42, 37, 34, 0.08);
+}
+.shadow-retro-btn {
+  box-shadow: 0 4px 14px rgba(222, 115, 86, 0.25);
 }
 
 @keyframes fadeInUp {

@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans, Noto_Serif_JP, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-noto-serif-jp",
+  display: "swap",
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -16,23 +35,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "World Divine Light Organization — Los Angeles Spiritual Center",
+  title: "Los Angeles Divine Light Center | Back to the Origin",
   description:
-    "Discover the transformative Art of Divine Light — a sacred practice that purifies the soul and elevates the spirit, open to all people seeking peace, healing, and spiritual growth.",
+    "Experience the Art of Divine Light (tekazashi) in Los Angeles. Purify spiritual burdens, elevate your Sonen, and return to your original luminous self. 100% non-profit 501(c)(3).",
   keywords: [
     "World Divine Light Organization",
-    "Sekai Kyusei Kyo",
+    "Sekai Mahikari Bunmei Kyodan",
     "Okiyome",
     "Art of Divine Light",
+    "Tekazashi",
     "Los Angeles",
     "spiritual healing",
     "soul purification",
     "nonprofit",
   ],
   openGraph: {
-    title: "World Divine Light Organization — Los Angeles Spiritual Center",
+    title: "Los Angeles Divine Light Center | Back to the Origin",
     description:
-      "A sacred practice that purifies the soul and elevates the spirit.",
+      "A sacred non-contact practice that purifies the soul and elevates the spirit.",
     type: "website",
     locale: "en_US",
   },
@@ -42,7 +62,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${plusJakartaSans.variable} ${notoSerifJP.variable} ${playfair.variable} ${inter.variable}`}
+    >
       <body>{children}</body>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-1695WNK4CX"
