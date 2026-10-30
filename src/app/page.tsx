@@ -122,10 +122,10 @@ export default function Home() {
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#E8E1D5]/60 transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 xl:px-8 h-20 flex items-center justify-between gap-4">
           
           {/* Left: Logo & Organization Name */}
-          <div className="flex-1 flex items-center justify-start">
+          <div className="flex items-center justify-start shrink-0">
             <a href="#" className="flex items-center gap-3 group shrink-0">
               <img
                 src="/assets/wdl_logo.png"
@@ -146,27 +146,27 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Center: Desktop Nav Links (Horizontally and Vertically Centered) */}
-          <nav className="hidden xl:flex items-center justify-center gap-7 text-sm font-medium text-[#6C655E] shrink-0">
-            <a href="#about" className="hover:text-[#2A2522] transition-colors whitespace-nowrap flex items-center h-full py-1">
+          {/* Center: Desktop Nav Links (Balanced & Centered with clean margins) */}
+          <nav className="hidden xl:flex items-center justify-center gap-5 2xl:gap-7 text-sm font-medium text-[#6C655E] shrink-0 mx-auto">
+            <a href="#about" className="hover:text-[#2A2522] transition-colors whitespace-nowrap py-1">
               {lang === "en" ? "The Practice" : "お浄めとは"}
             </a>
-            <a href="#principle" className="hover:text-[#2A2522] transition-colors whitespace-nowrap flex items-center h-full py-1">
+            <a href="#principle" className="hover:text-[#2A2522] transition-colors whitespace-nowrap py-1">
               {lang === "en" ? "The Principle" : "魂のメカニズム"}
             </a>
-            <a href="#experiences" className="hover:text-[#2A2522] transition-colors whitespace-nowrap flex items-center h-full py-1">
+            <a href="#experiences" className="hover:text-[#2A2522] transition-colors whitespace-nowrap py-1">
               {lang === "en" ? "Experiences" : "体験者の声"}
             </a>
-            <a href="#visit" className="hover:text-[#2A2522] transition-colors whitespace-nowrap flex items-center h-full py-1">
+            <a href="#visit" className="hover:text-[#2A2522] transition-colors whitespace-nowrap py-1">
               {lang === "en" ? "What to Expect" : "当日の流れ"}
             </a>
-            <a href="#contact" className="hover:text-[#2A2522] transition-colors whitespace-nowrap flex items-center h-full py-1">
+            <a href="#contact" className="hover:text-[#2A2522] transition-colors whitespace-nowrap py-1">
               {lang === "en" ? "Visit Us" : "アクセス"}
             </a>
           </nav>
 
           {/* Right: Actions */}
-          <div className="flex-1 flex items-center justify-end gap-3 shrink-0">
+          <div className="flex items-center justify-end gap-3 shrink-0">
             <div className="flex items-center bg-white p-1 rounded-full border border-[#E8E1D5] shadow-sm text-xs font-semibold shrink-0">
               <button
                 onClick={() => switchLanguage("en")}
